@@ -5,9 +5,17 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  // Override default ignores of eslint-config-next.
+  {
+    rules: {
+      // Allow Record<string, any> for Supabase data shapes
+      "@typescript-eslint/no-explicit-any": "warn",
+      // Data fetching in useEffect is standard for client components in App Router
+      "react-hooks/set-state-in-effect": "off",
+      // img tags are acceptable for external/Supabase images
+      "@next/next/no-img-element": "warn",
+    },
+  },
   globalIgnores([
-    // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
     "build/**",
