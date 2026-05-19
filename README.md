@@ -1,114 +1,56 @@
 # Christex Foundation Cohort Blog
 
-A modern, full-stack web application built with Next.js App Router, Supabase Postgres, and Tailwind CSS. This platform serves as a professional blogging system for Christex Foundation students and administrators.
+## What It Does
 
-## Features
+This is a simple full-stack cohort blogging platform built for the Christex Foundation community. Users can sign up, log in, create posts, and view posts on the homepage feed. User authentication and database storage are handled using Supabase.
 
-- **Authentication**: Supabase Auth with role-based access (Admin/Student)
-- **Blog Management**: Create, read, update, delete posts with rich content
-- **Comments System**: Real-time comments on posts
-- **Categories**: Organized content by categories
-- **Responsive Design**: Modern UI with Tailwind CSS
-- **Image Uploads**: Featured images via Supabase Storage
-- **Admin Dashboard**: Comprehensive admin panel for content management
+---
 
-## Tech Stack
+## Stack Used
 
-- **Frontend**: Next.js 14 (App Router), React, TypeScript
-- **Styling**: Tailwind CSS
-- **Backend**: Supabase (PostgreSQL, Auth, Storage)
-- **Deployment**: Vercel (recommended)
+* Next.js (App Router)
+* TypeScript
+* Tailwind CSS
+* Supabase (Auth + PostgreSQL)
 
-## Getting Started
+---
 
-### Prerequisites
+## How To Run Locally
 
-- Node.js 18+
-- npm or yarn
-- Supabase account
-
-### 1. Clone and Install
+1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
-cd christex-cohort-blog
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
+
+2. Install dependencies
+
+```bash
 npm install
 ```
 
-### 2. Supabase Setup
-
-1. Create a new project at [supabase.com](https://supabase.com)
-2. Go to Settings > API to get your project URL and anon key
-3. Go to Settings > Database to get your service role key
-
-### 3. Environment Variables
-
-Create a `.env.local` file in the root directory:
+3. Create `.env.local`
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 ```
 
-### 4. Database Schema
-
-Run the SQL in `database/schema.sql` in your Supabase SQL Editor to create tables and policies.
-
-### 5. Run the Development Server
+4. Run the development server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+5. Open in browser
 
-## Database Tables
-
-- **profiles**: User profiles with roles
-- **posts**: Blog posts with metadata
-- **categories**: Post categories
-- **comments**: Post comments
-
-## Authentication
-
-- **Admin**: Full CRUD on posts, manage categories, moderate comments
-- **Student**: View posts, comment, manage own comments
-
-## Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Connect your repo to Vercel
-3. Add environment variables in Vercel dashboard
-4. Deploy
-
-### Other Platforms
-
-Ensure your deployment platform supports Next.js App Router and add the environment variables.
-
-## Project Structure
-
-```
-app/
-├── admin/          # Admin dashboard
-├── login/          # Authentication
-├── posts/          # Blog posts
-└── signup/
-components/         # Reusable components
-lib/               # Utilities and Supabase client
-database/          # Schema and migrations
+```text
+http://localhost:4000
 ```
 
-## Contributing
+---
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+## One Thing The AI Got Wrong
 
-## License
-
-This project is licensed under the MIT License.
+The AI initially generated authentication and database setup correctly, but the dashboard and create-post functionality were missing completely even though the auth worked. I had to simplify the project structure and rebuild the missing routes/pages so logged-in users could actually create and view posts properly.
